@@ -170,4 +170,5 @@ The tape is a flat `Vec<TapeEntry>` in execution order. This is simpler to imple
 
 ## See Also
 
-- [README](../../README.md)
+- [Overview](../README.md)
+- [Integration Guide](integration.md)

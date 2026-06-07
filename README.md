@@ -41,7 +41,9 @@ if let Some(grad) = tape::grad(&x) {
 
 ## Documentation
 
+- [Overview](docs/README.md) - W³H
 - [Architecture](docs/3-design/architecture.md) - System design
+- [Integration](docs/3-design/integration.md) - Integration guide
 
 ## Related FRs
 
