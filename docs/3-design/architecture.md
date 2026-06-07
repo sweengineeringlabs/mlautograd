@@ -15,29 +15,45 @@
 ## Component Diagram
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                        mlautograd                       │
-│                                                         │
-│  ┌──────────┐   ┌───────────┐   ┌────────────────────┐  │
-│  │  tensor  │──▶│   tape    │──▶│     gradient       │  │
-│  │          │   │           │   │                    │  │
-│  │ Tensor   │   │ Gradient  │   │ AddBackward        │  │
-│  │ TensorId │   │   Tape    │   │ MatMulBackward     │  │
-│  │          │   │ BackwardOp│   │ MulBackward        │  │
-│  │          │   │ TapeEntry │   │ ReLUBackward       │  │
-│  └──────────┘   │           │   │ SigmoidBackward    │  │
-│                 │ record_op │   │ SoftmaxBackward    │  │
-│  ┌──────────┐   │ backward  │   │ TanhBackward       │  │
-│  │   pool   │   │ grad      │   │ unbroadcast        │  │
-│  │          │◀──│ no_grad   │   └────────────────────┘  │
-│  │ Vec<f32> │   │ clear_tape│                           │
-│  │  buffers │   └───────────┘                           │
-│  └──────────┘                                           │
-│                                                         │
-│  ┌───────────┐                                          │
-│  │  error    │   MlError / MlResult                     │
-│  └───────────┘                                          │
-└─────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                           mlautograd                             │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │  api/  (public traits, value objects, error types)          │ │
+│  │                                                             │ │
+│  │  error.rs       MlError, MlResult                          │ │
+│  │  tensor_id.rs   TensorId                                   │ │
+│  │  tensor.rs      Tensor                                     │ │
+│  │  backward_op.rs BackwardOp (trait)                         │ │
+│  │  tape_entry.rs  TapeEntry                                  │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                              │ (used by)                         │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │  core/  (implementations — not re-exported from lib.rs)     │ │
+│  │                                                             │ │
+│  │  gradient_tape.rs   GradientTape (internal) + free fns:    │ │
+│  │                     record_op, backward, grad, set_grad,   │ │
+│  │                     no_grad, clear_tape, is_recording       │ │
+│  │  pool.rs            thread-local Vec<f32> buffer pool      │ │
+│  │  gradient/          BackwardOp impls:                      │ │
+│  │    add.rs           AddBackward, unbroadcast               │ │
+│  │    matmul.rs        MatMulBackward                         │ │
+│  │    mul.rs           MulBackward                            │ │
+│  │    relu.rs          ReLUBackward                           │ │
+│  │    sigmoid.rs       SigmoidBackward                        │ │
+│  │    softmax.rs       SoftmaxBackward                        │ │
+│  │    tanh.rs          TanhBackward                           │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                              │ (re-exported by)                  │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │  saf/  (sole public factory / re-export surface)            │ │
+│  │                                                             │ │
+│  │  mod.rs   re-exports free fns + BackwardOp impls           │ │
+│  │           GradientTape intentionally omitted               │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────────┘
          │
          ▼
     llmtensor (CoreTensor — external dep)
@@ -45,14 +61,11 @@
 
 ## Layer Responsibilities
 
-| Module | Responsibility | Key Types | Dependencies |
-|--------|---------------|-----------|--------------|
-| `tensor` | Wraps `llmtensor::Tensor` with a stable `TensorId` and a `requires_grad` flag. Delegates all numeric ops to the underlying `CoreTensor`. | `Tensor` | `tensor_id`, `llmtensor` |
-| `tensor_id` | Provides monotonically increasing IDs via an atomic counter. Used by the tape to key gradient accumulators. | `TensorId` | none |
-| `tape` | Thread-local `GradientTape`. Exposes free functions (`record_op`, `backward`, `grad`, `no_grad`, `is_recording`, `clear_tape`) so callers never touch the tape struct directly. | `GradientTape`, `BackwardOp`, `TapeEntry` | `tensor`, `pool`, `gradient` |
-| `pool` | Thread-local `Vec<f32>` buffer pool. Backward ops borrow pre-allocated buffers to avoid per-op heap allocation during the backward pass. | buffer pool (no public type) | none |
-| `gradient` | Built-in implementations of `BackwardOp` for the core differentiable ops. Each struct captures the inputs/outputs needed to compute its contribution and calls `unbroadcast` for broadcast-aware accumulation. | `AddBackward`, `MatMulBackward`, `MulBackward`, `ReLUBackward`, `SigmoidBackward`, `SoftmaxBackward`, `TanhBackward` | `tape`, `pool`, `tensor` |
-| `error` | Shared `MlError` enum and `MlResult<T>` alias used across the stack. | `MlError`, `MlResult` | `thiserror` |
+| Layer | Modules | Responsibility | Key Types | Dependencies |
+|-------|---------|---------------|-----------|--------------|
+| `api` | `error`, `tensor_id`, `tensor`, `backward_op`, `tape_entry` | Public traits, value objects, and error types. No dependency on `core`. Defines the shared language used across all three layers. | `MlError`, `MlResult`, `TensorId`, `Tensor`, `BackwardOp`, `TapeEntry` | `llmtensor`, `thiserror` |
+| `core` | `gradient_tape`, `pool`, `gradient/*` | Concrete implementations. `gradient_tape` holds the thread-local `GradientTape` and all free functions that drive the forward/backward lifecycle. `pool` manages the thread-local `Vec<f32>` buffer pool. `gradient/` contains each `BackwardOp` impl. None of these are re-exported directly from `lib.rs`. | `GradientTape` (internal), buffer pool (no public type), `AddBackward`, `MatMulBackward`, `MulBackward`, `ReLUBackward`, `SigmoidBackward`, `SoftmaxBackward`, `TanhBackward` | `api` |
+| `saf` | `mod.rs` | Sole public factory and re-export surface. Surfaces the free functions and `BackwardOp` implementations that consumers need. `GradientTape` and `pool` are intentionally withheld. | (re-exports from `core`) | `core`, `api` |
 
 ## Data Flow
 
@@ -158,6 +171,23 @@ PyTorch-style broadcasting means a scalar or smaller-rank tensor can participate
 
 **No global autograd graph.**
 The tape is a flat `Vec<TapeEntry>` in execution order. This is simpler to implement and debug than a DAG, and sufficient for the current stack's training patterns (single forward pass, single backward pass per step).
+
+## Cross-Cutting Concerns
+
+### Security
+- No unsafe code in the AD logic — all tensor math delegates to `llmtensor`
+- Thread-local tape means no shared mutable state between threads; no lock needed
+- No external input accepted — the engine operates entirely on in-process tensors
+
+### Error Handling
+- All fallible ops return `MlResult<T>` — no panics in library code
+- `MlError` variants are specific enough to be actionable without exposing internal state
+- `tape::backward` is infallible — gradient accumulation errors surface as missing gradients, not panics
+
+### Performance
+- Thread-local buffer pool in `core/pool` reuses `Vec<f32>` allocations across backward ops, cutting allocator pressure in long backward passes
+- Thread-local tape avoids lock contention in data-parallel training; each thread owns its own forward/backward context
+- `tape::no_grad` disables recording entirely — zero overhead for inference paths
 
 ## Integration Points
 

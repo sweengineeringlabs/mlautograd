@@ -1,5 +1,5 @@
-use crate::tape::BackwardOp;
-use crate::tensor::Tensor;
+use crate::api::backward_op::BackwardOp;
+use crate::api::tensor::Tensor;
 
 pub struct AddBackward {
     pub a_shape: Vec<usize>,

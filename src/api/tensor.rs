@@ -1,6 +1,6 @@
 use swe_ml_tensor::{DType, Tensor as CoreTensor, TensorError, TensorResult};
-use crate::error::{MlError, MlResult};
-pub use crate::tensor_id::TensorId;
+use crate::api::error::{MlError, MlResult};
+pub use crate::api::tensor_id::TensorId;
 
 #[derive(Debug, Clone)]
 pub struct Tensor {

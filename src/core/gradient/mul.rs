@@ -1,6 +1,6 @@
-use crate::tape::BackwardOp;
-use crate::tensor::Tensor;
-use crate::gradient::add::unbroadcast;
+use crate::api::backward_op::BackwardOp;
+use crate::api::tensor::Tensor;
+use crate::core::gradient::add::unbroadcast;
 
 pub struct MulBackward;
 

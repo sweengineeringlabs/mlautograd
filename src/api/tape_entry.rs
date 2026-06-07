@@ -1,6 +1,6 @@
-use crate::tape::backward_op::BackwardOp;
-use crate::tensor_id::TensorId;
-use crate::tensor::Tensor;
+use crate::api::backward_op::BackwardOp;
+use crate::api::tensor_id::TensorId;
+use crate::api::tensor::Tensor;
 
 pub struct TapeEntry {
     pub backward_op: Box<dyn BackwardOp>,

@@ -1,5 +1,6 @@
-use crate::tape::tape_entry::TapeEntry;
-use crate::tensor::{Tensor, TensorId};
+use crate::api::tape_entry::TapeEntry;
+use crate::api::tensor::Tensor;
+use crate::api::tensor_id::TensorId;
 use std::cell::RefCell;
 use std::collections::HashMap;
 
