@@ -1,0 +1,16 @@
+[package]
+name = "mlautograd"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["sweengineeringlabs <engineers@swelabs.io>"]
+description = "Automatic differentiation engine — gradient tape, backward ops, buffer pool"
+keywords = ["autograd", "machine-learning", "gradient", "automatic-differentiation"]
+categories = ["science", "mathematics"]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+swe-ml-tensor = { package = "llmtensor", git = "https://github.com/sweengineeringlabs/llmtensor", rev = "3f2fb98" }
+thiserror = "2"
