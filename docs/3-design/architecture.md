@@ -92,6 +92,56 @@
                             Caller
 ```
 
+## Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant C as Caller
+    participant T as Tensor
+    participant TP as tape (thread-local)
+    participant GT as GradientTape
+    participant BO as BackwardOp
+
+    C->>T: x.set_requires_grad(true)
+    C->>T: forward op (e.g. matmul_raw, add_raw)
+    T->>TP: record_op(TapeEntry { output_id, input_ids, saved_tensors, backward_op })
+    TP->>GT: push(TapeEntry)
+    T-->>C: output: Tensor
+
+    Note over C,GT: forward pass complete — tape has N entries
+
+    C->>TP: tape::backward(&loss)
+    loop entries in reverse order
+        TP->>GT: pop TapeEntry
+        GT->>BO: backward(grad_output, saved_tensors)
+        BO-->>GT: Vec<Tensor> (grads for each input_id)
+        GT->>GT: accumulate grad per TensorId
+    end
+    TP-->>C: (gradients ready)
+
+    C->>TP: tape::grad(&x)
+    TP-->>C: Option<Tensor> (gradient w.r.t. x)
+```
+
+## Dataflow Diagram
+
+```mermaid
+flowchart TD
+    A["Input<br/>Tensor<br/>requires_grad=true<br/>shape: any"] --> B["Forward Op<br/>(matmul / add / relu / etc)"]
+    B --> C["Output Tensor<br/>shape: derived"]
+    B --> D["TapeEntry<br/>output_id: TensorId<br/>input_ids: Vec&lt;TensorId&gt;<br/>saved_tensors: Vec&lt;Tensor&gt;<br/>backward_op: Box&lt;dyn BackwardOp&gt;"]
+    D --> E["GradientTape<br/>(thread-local Vec&lt;TapeEntry&gt;)"]
+
+    C --> F["tape::backward(loss)"]
+    E --> F
+
+    F --> G["BackwardOp::backward<br/>IN: grad_output: &Tensor<br/>IN: saved: &[Tensor]<br/>OUT: Vec&lt;Tensor&gt; (one per input_id)"]
+    G --> H["Gradient Map<br/>TensorId → accumulated grad Tensor"]
+
+    H --> I["tape::grad(&x)<br/>IN: &Tensor<br/>OUT: Option&lt;&Tensor&gt;"]
+    I --> J["Gradient<br/>shape: same as x"]
+```
+
 ## Design Decisions
 
 **Thread-local tape over a shared tape.**
