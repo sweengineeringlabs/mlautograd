@@ -14,3 +14,5 @@ pub use gradient::add::{unbroadcast, AddBackward};
 pub use gradient::matmul::MatMulBackward;
 pub use gradient::mul::MulBackward;
 pub use gradient::relu::ReLUBackward;
+pub use gradient::sigmoid::SigmoidBackward;
+pub use gradient::tanh::TanhBackward;

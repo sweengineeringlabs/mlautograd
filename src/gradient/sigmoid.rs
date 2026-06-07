@@ -1,7 +1,7 @@
 use crate::tape::BackwardOp;
 use crate::tensor::Tensor;
 
-pub(crate) struct SigmoidBackward;
+pub struct SigmoidBackward;
 
 impl BackwardOp for SigmoidBackward {
     fn backward(&self, grad_output: &Tensor, saved: &[Tensor]) -> Vec<Tensor> {
