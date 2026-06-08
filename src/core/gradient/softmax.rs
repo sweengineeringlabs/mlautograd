@@ -1,9 +1,6 @@
-use crate::api::backward_op::BackwardOp;
-use crate::api::tensor::Tensor;
-
-pub(crate) struct SoftmaxBackward {
-    pub dim: i64,
-}
+use crate::api::gradient::types::softmax_backward::SoftmaxBackward;
+use crate::api::traits::backward_op::BackwardOp;
+use crate::api::types::tensor::Tensor;
 
 impl BackwardOp for SoftmaxBackward {
     fn backward(&self, grad_output: &Tensor, saved: &[Tensor]) -> Vec<Tensor> {
@@ -46,9 +43,7 @@ impl BackwardOp for SoftmaxBackward {
         vec![result]
     }
 
-    fn name(&self) -> &str {
-        "SoftmaxBackward"
-    }
+
 }
 
 #[cfg(test)]

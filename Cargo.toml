@@ -2,15 +2,29 @@
 name = "mlautograd"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.85"
 license = "MIT OR Apache-2.0"
 authors = ["sweengineeringlabs <engineers@swelabs.io>"]
 description = "Automatic differentiation engine — gradient tape, backward ops, buffer pool"
+repository = "https://github.com/sweengineeringlabs/mlautograd"
 keywords = ["autograd", "machine-learning", "gradient", "automatic-differentiation"]
 categories = ["science", "mathematics"]
 
 [lib]
 path = "src/lib.rs"
 
+[[example]]
+name = "basic_autograd"
+path = "examples/basic_autograd.rs"
+
 [dependencies]
 swe-ml-tensor = { package = "llmtensor", git = "https://github.com/sweengineeringlabs/llmtensor", rev = "3f2fb98" }
 thiserror = "2"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+
+[package.metadata.struct-engine]
+application_type = "lib"
+service_type = "autograd-engine"

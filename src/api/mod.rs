@@ -1,5 +1,6 @@
-pub mod backward_op;
 pub mod error;
-pub mod tape_entry;
-pub mod tensor;
-pub mod tensor_id;
+pub mod gradient;
+pub mod pool;
+pub mod traits;
+pub mod types;
+pub mod validation;

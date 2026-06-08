@@ -1,8 +1,6 @@
-use crate::api::backward_op::BackwardOp;
-use crate::api::tensor::Tensor;
-use crate::core::gradient::add::unbroadcast;
-
-pub struct MulBackward;
+use crate::api::gradient::types::mul_backward::MulBackward;
+use crate::api::traits::backward_op::BackwardOp;
+use crate::api::types::tensor::Tensor;
 
 impl BackwardOp for MulBackward {
     fn backward(&self, grad_output: &Tensor, saved: &[Tensor]) -> Vec<Tensor> {
@@ -12,15 +10,13 @@ impl BackwardOp for MulBackward {
         let grad_a_full = grad_output.mul_raw(b).expect("mul grad_a");
         let grad_b_full = grad_output.mul_raw(a).expect("mul grad_b");
 
-        let grad_a = unbroadcast(&grad_a_full, a.shape());
-        let grad_b = unbroadcast(&grad_b_full, b.shape());
+        let grad_a = grad_a_full.unbroadcast_to(a.shape());
+        let grad_b = grad_b_full.unbroadcast_to(b.shape());
 
         vec![grad_a, grad_b]
     }
 
-    fn name(&self) -> &str {
-        "MulBackward"
-    }
+
 }
 
 #[cfg(test)]

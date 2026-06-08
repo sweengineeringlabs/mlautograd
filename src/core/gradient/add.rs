@@ -1,47 +1,15 @@
-use crate::api::backward_op::BackwardOp;
-use crate::api::tensor::Tensor;
-
-pub struct AddBackward {
-    pub a_shape: Vec<usize>,
-    pub b_shape: Vec<usize>,
-}
+use crate::api::gradient::types::add_backward::AddBackward;
+use crate::api::traits::backward_op::BackwardOp;
+use crate::api::types::tensor::Tensor;
 
 impl BackwardOp for AddBackward {
     fn backward(&self, grad_output: &Tensor, _saved: &[Tensor]) -> Vec<Tensor> {
-        let grad_a = unbroadcast(grad_output, &self.a_shape);
-        let grad_b = unbroadcast(grad_output, &self.b_shape);
+        let grad_a = grad_output.unbroadcast_to(&self.a_shape);
+        let grad_b = grad_output.unbroadcast_to(&self.b_shape);
         vec![grad_a, grad_b]
     }
 
-    fn name(&self) -> &str {
-        "AddBackward"
-    }
-}
 
-pub fn unbroadcast(grad: &Tensor, target_shape: &[usize]) -> Tensor {
-    let grad_shape = grad.shape();
-    if grad_shape == target_shape {
-        return grad.clone();
-    }
-
-    let mut result = grad.clone();
-
-    let extra_dims = grad_shape.len().saturating_sub(target_shape.len());
-    for _ in 0..extra_dims {
-        result = result.sum_raw(0).expect("unbroadcast sum leading dim");
-    }
-
-    let result_shape = result.shape().to_vec();
-    for (i, &target_dim) in target_shape.iter().enumerate() {
-        if target_dim == 1 && i < result_shape.len() && result_shape[i] != 1 {
-            result = result.sum_raw(i as i64).expect("unbroadcast sum dim");
-            let mut new_shape = result.shape().to_vec();
-            new_shape.insert(i, 1);
-            result = result.reshape_raw(&new_shape).expect("unbroadcast reshape");
-        }
-    }
-
-    result
 }
 
 #[cfg(test)]
@@ -62,9 +30,9 @@ mod tests {
     }
 
     #[test]
-    fn test_unbroadcast_same_shape_returns_clone() {
+    fn test_unbroadcast_to_same_shape_returns_clone() {
         let t = Tensor::ones(vec![2, 3]);
-        let result = unbroadcast(&t, &[2, 3]);
+        let result = t.unbroadcast_to(&[2, 3]);
         assert_eq!(result.shape(), &[2, 3]);
     }
 }

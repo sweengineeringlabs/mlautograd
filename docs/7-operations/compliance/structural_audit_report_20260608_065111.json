@@ -1,0 +1,4098 @@
+{
+  "timestamp": "2026-06-08T04:51:11.417490100+00:00",
+  "results": [
+    {
+      "id": 1,
+      "category": "structure",
+      "description": "Cargo.toml exists at root",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.2837
+    },
+    {
+      "id": 3,
+      "category": "structure",
+      "description": "src/lib.rs or src/main.rs exists",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 5,
+      "category": "structure",
+      "description": "src/ directory exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.1606
+    },
+    {
+      "id": 6,
+      "category": "structure",
+      "description": "bootstrap.sh or build.sh exists at root",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 6,
+            "path": "bootstrap.sh",
+            "message": "Neither bootstrap.sh nor build.sh exists at project root",
+            "severity": "error",
+            "rule_type": "builtin:bootstrap_sh_exists",
+            "expected": "bootstrap.sh or build.sh",
+            "actual": "missing",
+            "fix_hint": "Create bootstrap.sh (preferred) or build.sh for project setup",
+            "remediation_strategy": "declarative"
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "category": "structure",
+      "description": "No nested src/ dirs (src/src/)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.0428
+    },
+    {
+      "id": 8,
+      "category": "structure",
+      "description": "benches/ directory exists (if benchmarks declared)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 9,
+      "category": "cargo_metadata",
+      "description": "package.name exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.0039
+    },
+    {
+      "id": 10,
+      "category": "cargo_metadata",
+      "description": "package.version exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.001
+    },
+    {
+      "id": 11,
+      "category": "cargo_metadata",
+      "description": "package.edition exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.0007
+    },
+    {
+      "id": 12,
+      "category": "cargo_metadata",
+      "description": "package.description exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.0009
+    },
+    {
+      "id": 13,
+      "category": "cargo_metadata",
+      "description": "package.license or package.license-file exists",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 14,
+      "category": "cargo_metadata",
+      "description": "package.repository exists",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 14,
+            "path": "Cargo.toml",
+            "message": "Key 'package.repository' not found in Cargo.toml",
+            "severity": "info",
+            "rule_type": "cargo_key_exists",
+            "expected": "package.repository",
+            "actual": "missing",
+            "fix_hint": "Add key 'package.repository' to Cargo.toml",
+            "remediation_strategy": "manual"
+          }
+        ]
+      },
+      "duration_ms": 0.1943
+    },
+    {
+      "id": 15,
+      "category": "cargo_metadata",
+      "description": "package.authors exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.003
+    },
+    {
+      "id": 16,
+      "category": "cargo_metadata",
+      "description": "package.rust-version exists",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 16,
+            "path": "Cargo.toml",
+            "message": "Key 'package.rust-version' not found in Cargo.toml",
+            "severity": "info",
+            "rule_type": "cargo_key_exists",
+            "expected": "package.rust-version",
+            "actual": "missing",
+            "fix_hint": "Add key 'package.rust-version' to Cargo.toml",
+            "remediation_strategy": "manual"
+          }
+        ]
+      },
+      "duration_ms": 0.0039
+    },
+    {
+      "id": 17,
+      "category": "cargo_metadata",
+      "description": "package.keywords exists (libraries)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.0007
+    },
+    {
+      "id": 18,
+      "category": "cargo_metadata",
+      "description": "package.categories exists (libraries)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.0005
+    },
+    {
+      "id": 19,
+      "category": "cargo_targets",
+      "description": "[lib] path matches existing file",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 20,
+      "category": "cargo_targets",
+      "description": "[[bin]] path matches existing file",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 21,
+      "category": "cargo_targets",
+      "description": "[[test]] targets declared for tests/ files",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 22,
+      "category": "cargo_targets",
+      "description": "[[bench]] targets have harness = false",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 23,
+      "category": "cargo_targets",
+      "description": "No undeclared test files",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 24,
+      "category": "cargo_targets",
+      "description": "No undeclared bench files",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 25,
+      "category": "cargo_targets",
+      "description": "[[example]] targets exist if examples/ present",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 26,
+      "category": "cargo_targets",
+      "description": "[[test]] paths resolve to existing files",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 27,
+      "category": "naming",
+      "description": "Package name uses kebab-case",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.5816
+    },
+    {
+      "id": 29,
+      "category": "naming",
+      "description": "Source files use snake_case naming",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 1.4925
+    },
+    {
+      "id": 30,
+      "category": "naming",
+      "description": "No uppercase in source file names",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.731
+    },
+    {
+      "id": 31,
+      "category": "naming",
+      "description": "Module file names match mod declarations",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 32,
+      "category": "naming",
+      "description": "Binary names use hyphens or underscores",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 33,
+      "category": "test_org",
+      "description": "Test files use correct suffixes (_test.rs, _int_test.rs, _e2e_test.rs, etc.)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 34,
+      "category": "test_org",
+      "description": "Test function name prefix follows location-aware convention: <feature>_<type_kind>_<fn>_<suffix> for tests/<file>.rs; <type_kind>_<fn>_<suffix> for tests/<feature>/<file>.rs (type_kind ∈ {trait,struct,type,enum})",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 35,
+      "category": "test_org",
+      "description": "Test function name uses either the conventional test_ prefix or a recognised test-category suffix (_test, _int_test, _e2e_test, _perf_test, _security_test, _stress_test, _load_test, _unit_test, _smoke_test, _contract_test)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 37,
+      "category": "test_org",
+      "description": "Colocated #[cfg(test)] blocks only permitted when testing private methods",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 37,
+            "path": "src\\api\\error.rs",
+            "message": "Source file 'src\\api\\error.rs' has a #[cfg(test)] block but only public functions; move tests to tests/<name>_test.rs",
+            "severity": "warning",
+            "rule_type": "builtin:unit_tests_colocated",
+            "expected": "#[cfg(test)] block",
+            "actual": "forbidden — only pub fns",
+            "fix_hint": "Move tests to a standalone tests/<name>_test.rs file",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 37,
+            "path": "src\\api\\tape_entry.rs",
+            "message": "Source file 'src\\api\\tape_entry.rs' has a #[cfg(test)] block but only public functions; move tests to tests/<name>_test.rs",
+            "severity": "warning",
+            "rule_type": "builtin:unit_tests_colocated",
+            "expected": "#[cfg(test)] block",
+            "actual": "forbidden — only pub fns",
+            "fix_hint": "Move tests to a standalone tests/<name>_test.rs file",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "category": "test_org",
+      "description": "No test code in src/ (non-#[cfg(test)])",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 39,
+      "category": "documentation",
+      "description": "README.md exists",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.1249
+    },
+    {
+      "id": 40,
+      "category": "documentation",
+      "description": "doc/ or docs/ directory exists (if library)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 41,
+      "category": "documentation",
+      "description": "examples/ directory exists (if library)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 41,
+            "path": null,
+            "message": "examples/ directory does not exist (recommended for libraries)",
+            "severity": "info",
+            "rule_type": "builtin:examples_dir_lib",
+            "expected": "examples/",
+            "actual": "missing",
+            "fix_hint": "Create an examples/ directory with usage examples",
+            "remediation_strategy": "declarative"
+          }
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "category": "documentation",
+      "description": "CHANGELOG.md exists",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 42,
+            "path": "CHANGELOG.md",
+            "message": "File 'CHANGELOG.md' does not exist",
+            "severity": "warning",
+            "rule_type": "file_exists",
+            "expected": "CHANGELOG.md",
+            "actual": "missing",
+            "fix_hint": "Create the file 'CHANGELOG.md'",
+            "remediation_strategy": "declarative"
+          }
+        ]
+      },
+      "duration_ms": 0.0522
+    },
+    {
+      "id": 43,
+      "category": "hygiene",
+      "description": ".gitignore exists with target/",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 43,
+            "path": ".gitignore",
+            "message": "File '.gitignore' does not exist (required to contain 'target/')",
+            "severity": "warning",
+            "rule_type": "file_content_matches",
+            "expected": "target/",
+            "actual": "file missing",
+            "fix_hint": "Update '.gitignore' so its content matches pattern 'target/'",
+            "remediation_strategy": "declarative"
+          }
+        ]
+      },
+      "duration_ms": 0.0708
+    },
+    {
+      "id": 44,
+      "category": "hygiene",
+      "description": "No generated files committed (target/)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 77.151
+    },
+    {
+      "id": 46,
+      "category": "interface",
+      "description": "api/ layer must not import from core/ (L2 must not depend on L3)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 8.9004
+    },
+    {
+      "id": 47,
+      "category": "interface",
+      "description": "saf/ must not re-export from core/ (SAF re-exports from api/ and spi/ only)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 47,
+            "path": "src/saf/mod.rs",
+            "message": "File 'src/saf/mod.rs' contains forbidden pattern 'pub\\s+use\\s+crate::core'",
+            "severity": "error",
+            "rule_type": "file_content_not_matches",
+            "expected": "pub\\s+use\\s+crate::core",
+            "actual": "matched",
+            "fix_hint": "Remove `pub use crate::core` from saf/; SAF re-exports from api/ and spi/ only — expose Core types via factory functions returning impl Trait",
+            "remediation_strategy": "manual"
+          }
+        ]
+      },
+      "duration_ms": 0.8086
+    },
+    {
+      "id": 49,
+      "category": "interface",
+      "description": "Core modules must implement their api traits (impl <Trait> for)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 50,
+      "category": "interface",
+      "description": "L2 items (struct, enum, type, trait, fn, const, static) must use pub(crate) visibility, not bare pub",
+      "result": {
+        "status": "dormant",
+        "waiting_on": [
+          47
+        ],
+        "reason": "Dormant: would fire when prerequisite rule(s) 47 pass"
+      }
+    },
+    {
+      "id": 51,
+      "category": "interface",
+      "description": "L2 structs implementing an api trait must carry the trait name as suffix (e.g. impl Reviewer for DefaultReviewer)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 52,
+      "category": "interface",
+      "description": "saf/mod.rs must exist (SAF facade entry point)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 53,
+      "category": "interface",
+      "description": "saf/ must not define new pub structs (facade layer only re-exports and wires)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 4.4412
+    },
+    {
+      "id": 54,
+      "category": "interface",
+      "description": "lib.rs must delegate public surface to saf/ via pub use",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 55,
+      "category": "interface",
+      "description": "lib.rs must not declare core as public (pub mod core is forbidden)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 1.8168
+    },
+    {
+      "id": 56,
+      "category": "interface",
+      "description": "lib.rs must not declare api as public (pub mod api is forbidden — all layers must be private)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 3.995
+    },
+    {
+      "id": 57,
+      "category": "interface",
+      "description": "L2 peers must not import each other (core/ ↛ spi/, spi/ ↛ core/)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 6.1253
+    },
+    {
+      "id": 58,
+      "category": "interface",
+      "description": "When spi/ exists, lib.rs must declare `mod spi` (private, not pub mod)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 60,
+      "category": "interface",
+      "description": "L2 must not import from L3 (core/ and spi/ must not depend on saf/)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 3.3902
+    },
+    {
+      "id": 66,
+      "category": "scripts",
+      "description": "scripts/ci/ directory exists (if scripts/ present)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 67,
+      "category": "scripts",
+      "description": "scripts/ci/build.sh exists (if scripts/ci/ present)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 68,
+      "category": "scripts",
+      "description": "scripts/ci/test.sh exists (if scripts/ci/ present)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 69,
+      "category": "scripts",
+      "description": "scripts/ci/lint.sh exists (if scripts/ci/ present)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 71,
+      "category": "structure",
+      "description": "Root contains only allowed entries (whitelist enforcement)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 71,
+            "path": ".git",
+            "message": "Unexpected entry '.git' at feature level (not in feature whitelist)",
+            "severity": "error",
+            "rule_type": "builtin:root_whitelist",
+            "expected": "Only entries from the feature whitelist",
+            "actual": ".git",
+            "fix_hint": "Fix the issue detected by builtin check 'root_whitelist'",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 75,
+      "category": "structure",
+      "description": "bootstrap.ps1 or build.ps1 exists at root (Windows)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 75,
+            "path": "bootstrap.ps1",
+            "message": "Neither bootstrap.ps1 nor build.ps1 exists at project root",
+            "severity": "error",
+            "rule_type": "builtin:bootstrap_ps1_exists",
+            "expected": "bootstrap.ps1 or build.ps1",
+            "actual": "missing",
+            "fix_hint": "Create bootstrap.ps1 (preferred) or build.ps1 for Windows setup",
+            "remediation_strategy": "declarative"
+          }
+        ]
+      }
+    },
+    {
+      "id": 76,
+      "category": "structure",
+      "description": "docs/ directory exists at root",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.11950000000000001
+    },
+    {
+      "id": 77,
+      "category": "test_org",
+      "description": "All public functions have corresponding tests (name-based)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'randn' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_randn or randn_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_randn()` or `fn randn_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'from_vec' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_from_vec or from_vec_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_from_vec()` or `fn from_vec_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'full' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_full or full_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_full()` or `fn full_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'inner' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_inner or inner_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_inner()` or `fn inner_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'ndim' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_ndim or ndim_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_ndim()` or `fn ndim_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'dtype' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_dtype or dtype_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_dtype()` or `fn dtype_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'data' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_data or data_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_data()` or `fn data_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'to_vec' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_to_vec or to_vec_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_to_vec()` or `fn to_vec_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'matmul_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_matmul_raw or matmul_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_matmul_raw()` or `fn matmul_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sub_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_sub_raw or sub_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_sub_raw()` or `fn sub_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mul_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_mul_raw or mul_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_mul_raw()` or `fn mul_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mul_scalar_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_mul_scalar_raw or mul_scalar_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_mul_scalar_raw()` or `fn mul_scalar_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'transpose_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_transpose_raw or transpose_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_transpose_raw()` or `fn transpose_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'relu_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_relu_raw or relu_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_relu_raw()` or `fn relu_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'neg_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_neg_raw or neg_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_neg_raw()` or `fn neg_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mean_all_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_mean_all_raw or mean_all_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_mean_all_raw()` or `fn mean_all_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sum_all_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_sum_all_raw or sum_all_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_sum_all_raw()` or `fn sum_all_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'pow_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_pow_raw or pow_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_pow_raw()` or `fn pow_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'div_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_div_raw or div_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_div_raw()` or `fn div_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'div_scalar_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_div_scalar_raw or div_scalar_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_div_scalar_raw()` or `fn div_scalar_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'add_scalar_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_add_scalar_raw or add_scalar_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_add_scalar_raw()` or `fn add_scalar_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sqrt_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_sqrt_raw or sqrt_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_sqrt_raw()` or `fn sqrt_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'reshape_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_reshape_raw or reshape_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_reshape_raw()` or `fn reshape_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sum_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_sum_raw or sum_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_sum_raw()` or `fn sum_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'permute_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_permute_raw or permute_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_permute_raw()` or `fn permute_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'squeeze_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_squeeze_raw or squeeze_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_squeeze_raw()` or `fn squeeze_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'unsqueeze_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_unsqueeze_raw or unsqueeze_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_unsqueeze_raw()` or `fn unsqueeze_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'flatten_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_flatten_raw or flatten_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_flatten_raw()` or `fn flatten_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'view_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_view_raw or view_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_view_raw()` or `fn view_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'slice_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_slice_raw or slice_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_slice_raw()` or `fn slice_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'index_select_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_index_select_raw or index_select_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_index_select_raw()` or `fn index_select_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'gather_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_gather_raw or gather_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_gather_raw()` or `fn gather_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'masked_select_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_masked_select_raw or masked_select_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_masked_select_raw()` or `fn masked_select_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'exp_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_exp_raw or exp_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_exp_raw()` or `fn exp_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'log_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_log_raw or log_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_log_raw()` or `fn log_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'abs_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_abs_raw or abs_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_abs_raw()` or `fn abs_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mean_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_mean_raw or mean_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_mean_raw()` or `fn mean_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'max_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_max_raw or max_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_max_raw()` or `fn max_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'min_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_min_raw or min_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_min_raw()` or `fn min_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'var_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_var_raw or var_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_var_raw()` or `fn var_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'std_dev_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_std_dev_raw or std_dev_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_std_dev_raw()` or `fn std_dev_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'concat_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_concat_raw or concat_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_concat_raw()` or `fn concat_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'stack_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_stack_raw or stack_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_stack_raw()` or `fn stack_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'split_raw' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_split_raw or split_raw_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_split_raw()` or `fn split_raw_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'update_data_from' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_update_data_from or update_data_from_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_update_data_from()` or `fn update_data_from_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'clear' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_clear or clear_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_clear()` or `fn clear_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'is_enabled' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_is_enabled or is_enabled_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_is_enabled()` or `fn is_enabled_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'record_op' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_record_op or record_op_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_record_op()` or `fn record_op_works()`",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 77,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'clear_tape' has no corresponding test",
+            "severity": "warning",
+            "rule_type": "builtin:all_methods_tested",
+            "expected": "test_clear_tape or clear_tape_ test",
+            "actual": "no test found",
+            "fix_hint": "Add a test function like `fn test_clear_tape()` or `fn clear_tape_works()`",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 78,
+      "category": "test_org",
+      "description": "Tests use @covers: annotation for explicit 1:1 function linking",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'zeros' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: zeros",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: zeros` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'ones' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: ones",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: ones` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'randn' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: randn",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: randn` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'from_vec' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: from_vec",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: from_vec` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'full' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: full",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: full` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'id' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: id",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: id` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'inner' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: inner",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: inner` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'requires_grad' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: requires_grad",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: requires_grad` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'set_requires_grad' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: set_requires_grad",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: set_requires_grad` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'shape' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: shape",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: shape` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'ndim' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: ndim",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: ndim` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'numel' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: numel",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: numel` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'dtype' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: dtype",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: dtype` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'data' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: data",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: data` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'to_vec' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: to_vec",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: to_vec` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'matmul_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: matmul_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: matmul_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'add_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: add_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: add_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sub_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: sub_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: sub_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mul_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: mul_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: mul_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mul_scalar_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: mul_scalar_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: mul_scalar_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'transpose_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: transpose_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: transpose_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'relu_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: relu_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: relu_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'neg_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: neg_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: neg_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mean_all_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: mean_all_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: mean_all_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sum_all_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: sum_all_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: sum_all_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'pow_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: pow_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: pow_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'div_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: div_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: div_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'div_scalar_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: div_scalar_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: div_scalar_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'add_scalar_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: add_scalar_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: add_scalar_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sqrt_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: sqrt_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: sqrt_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'reshape_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: reshape_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: reshape_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'sum_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: sum_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: sum_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'permute_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: permute_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: permute_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'squeeze_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: squeeze_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: squeeze_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'unsqueeze_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: unsqueeze_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: unsqueeze_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'flatten_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: flatten_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: flatten_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'view_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: view_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: view_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'slice_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: slice_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: slice_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'index_select_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: index_select_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: index_select_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'gather_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: gather_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: gather_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'masked_select_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: masked_select_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: masked_select_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'exp_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: exp_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: exp_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'log_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: log_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: log_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'abs_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: abs_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: abs_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'mean_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: mean_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: mean_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'max_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: max_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: max_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'min_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: min_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: min_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'var_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: var_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: var_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'std_dev_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: std_dev_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: std_dev_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'concat_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: concat_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: concat_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'stack_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: stack_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: stack_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'split_raw' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: split_raw",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: split_raw` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public function 'update_data_from' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: update_data_from",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: update_data_from` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor_id.rs",
+            "message": "@covers: 'TensorId::next' references unknown function (not found in this file)",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "existing fn name",
+            "actual": "TensorId::next",
+            "fix_hint": "Fix the @covers: annotation to reference an existing function",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\api\\tensor_id.rs",
+            "message": "@covers: 'TensorId::Display' references unknown function (not found in this file)",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "existing fn name",
+            "actual": "TensorId::Display",
+            "fix_hint": "Fix the @covers: annotation to reference an existing function",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient\\add.rs",
+            "message": "Public function 'unbroadcast' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: unbroadcast",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: unbroadcast` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'record' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: record",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: record` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'backward' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: backward",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: backward` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'grad' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: grad",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: grad` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'clear' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: clear",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: clear` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'enable' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: enable",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: enable` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'disable' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: disable",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: disable` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'is_enabled' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: is_enabled",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: is_enabled` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'record_op' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: record_op",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: record_op` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'backward' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: backward",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: backward` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'grad' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: grad",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: grad` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'set_grad' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: set_grad",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: set_grad` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'no_grad' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: no_grad",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: no_grad` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'clear_tape' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: clear_tape",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: clear_tape` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Public function 'is_recording' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: is_recording",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: is_recording` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\pool.rs",
+            "message": "Public function 'acquire' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: acquire",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: acquire` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\pool.rs",
+            "message": "Public function 'release' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: release",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: release` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 78,
+            "path": "src\\core\\pool.rs",
+            "message": "Public function 'clear_pool' has no @covers: annotation in any test",
+            "severity": "warning",
+            "rule_type": "builtin:test_covers_annotation",
+            "expected": "/// @covers: clear_pool",
+            "actual": "no @covers annotation",
+            "fix_hint": "Add `/// @covers: clear_pool` before a #[test] function that tests it",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 79,
+      "category": "naming",
+      "description": "Trait names must be singular (not plural)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 80,
+      "category": "test_org",
+      "description": "tests/ directory exists at same level as src/",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.2321
+    },
+    {
+      "id": 81,
+      "category": "interface",
+      "description": "Reports deprecated trait definitions in api/traits.rs for tracking",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 86,
+      "category": "interface",
+      "description": "L2 layers must not define traits (implementations only — traits belong in L1/api)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 7.6438
+    },
+    {
+      "id": 87,
+      "category": "interface",
+      "description": "SEA layer directories must not contain crates (no Cargo.toml inside api/, core/, saf/, spi/)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 89,
+      "category": "naming",
+      "description": "L2 module filenames must match their primary struct/trait name (with suffix tolerance)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 89,
+            "path": "src\\core\\gradient\\matmul.rs",
+            "message": "L2 file 'src\\core\\gradient\\matmul.rs' types [\"MatMulBackward\"] don't match filename 'Matmul'",
+            "severity": "warning",
+            "rule_type": "builtin:core_filename_matches_type",
+            "expected": "Type containing or matching 'Matmul'",
+            "actual": "MatMulBackward",
+            "fix_hint": "Rename file to match primary type, or rename type to include 'Matmul'",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 89,
+            "path": "src\\core\\gradient\\relu.rs",
+            "message": "L2 file 'src\\core\\gradient\\relu.rs' types [\"ReLUBackward\"] don't match filename 'Relu'",
+            "severity": "warning",
+            "rule_type": "builtin:core_filename_matches_type",
+            "expected": "Type containing or matching 'Relu'",
+            "actual": "ReLUBackward",
+            "fix_hint": "Rename file to match primary type, or rename type to include 'Relu'",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 90,
+      "category": "naming",
+      "description": "Types in L2 modules must be name-cohesive (SRP enforcement)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 91,
+      "category": "naming",
+      "description": "Suggest Builder pattern for complex structs (advisory)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 92,
+      "category": "application_type",
+      "description": "application_type must be defined in project metadata",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 93,
+      "category": "structure",
+      "description": "Project structure must match declared application_type",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 94,
+      "category": "test_org",
+      "description": "Integration tests must not use mocking libraries or mock types",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 95,
+      "category": "test_org",
+      "description": "Dependencies used in src/ must have integration or e2e test coverage",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 95,
+            "path": null,
+            "message": "Dependency 'swe-ml-tensor' is used in src/ but has no integration/e2e test coverage",
+            "severity": "warning",
+            "rule_type": "builtin:deps_have_integration_tests",
+            "expected": "dependency referenced in *_int_test.rs or *_e2e_test.rs",
+            "actual": "'swe-ml-tensor' only found in src/",
+            "fix_hint": "Add integration tests (*_int_test.rs) or e2e tests (*_e2e_test.rs) that exercise the dependency",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 96,
+      "category": "hygiene",
+      "description": "Dependencies declared in Cargo.toml must be used in src/",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 97,
+      "category": "hygiene",
+      "description": "CLI projects should use dirs/directories crate for XDG-compliant paths",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 98,
+      "category": "hygiene",
+      "description": "No hardcoded home directory paths in source code",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 99,
+      "category": "test_org",
+      "description": "Test files use suffixes consistent with dependency scope (allowing integration-style *_int_test.rs / *_e2e_test.rs in tests/)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 103,
+      "category": "gateway_isolation",
+      "description": "lib.rs must declare gateway as a private module — pub mod and pub(crate) mod are forbidden",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 0.7648
+    },
+    {
+      "id": 105,
+      "category": "test_org",
+      "description": "Each api/ trait has a corresponding test file in tests/",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 108,
+      "category": "code_organization",
+      "description": "Each public struct/trait/enum must have its own .rs file (one primary type per file)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 109,
+      "category": "code_organization",
+      "description": "Rust source file names must be nouns (no verb or assertion names like check_exists.rs)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 110,
+      "category": "code_organization",
+      "description": "mod.rs must contain only module declarations and re-exports — no struct/impl/fn logic",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 111,
+      "category": "code_organization",
+      "description": "No loose .rs files directly under L2 layer dirs — all code must live in subfolders",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 111,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Loose file 'gradient_tape.rs' found directly under src/core/",
+            "severity": "warning",
+            "rule_type": "builtin:no_loose_core_files",
+            "expected": "All code under src/core/ must live in subfolders",
+            "actual": "src/core/gradient_tape.rs",
+            "fix_hint": "Move loose files into appropriate subfolders (e.g., `core/engine.rs` → `core/engine/scanner.rs`)",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 111,
+            "path": "src\\core\\pool.rs",
+            "message": "Loose file 'pool.rs' found directly under src/core/",
+            "severity": "warning",
+            "rule_type": "builtin:no_loose_core_files",
+            "expected": "All code under src/core/ must live in subfolders",
+            "actual": "src/core/pool.rs",
+            "fix_hint": "Move loose files into appropriate subfolders (e.g., `core/engine.rs` → `core/engine/scanner.rs`)",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 112,
+      "category": "code_organization",
+      "description": "Sibling files sharing a common prefix must be grouped into a subdirectory module (e.g., check_runner.rs + check_result.rs → check/runner.rs + check/result.rs)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 113,
+      "category": "interface",
+      "description": "Every L2 struct with pub/pub(crate) methods must implement a trait defined in L1/api/ (program to the interface)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::record` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn record(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::record (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::backward` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn backward(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::backward (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::grad` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn grad(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::grad (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::clear` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn clear(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::clear (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::enable` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn enable(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::enable (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::disable` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn disable(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::disable (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 113,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "`GradientTape::is_enabled` has no corresponding method in any api/  trait — every pub method must be declared in an api/ trait",
+            "severity": "warning",
+            "rule_type": "builtin:core_structs_have_trait",
+            "expected": "Add `fn is_enabled(...)` to a trait in api/ then `impl <Trait> for GradientTape`",
+            "actual": "GradientTape::is_enabled (no trait coverage)",
+            "fix_hint": "Define a trait in api/traits.rs describing the struct's public behavior, then `impl Trait for Struct` in the L2 layer",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 116,
+      "category": "interface",
+      "description": "api/ must not import from core/ — api/ defines abstractions, it must not depend on implementations",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 4.9727
+    },
+    {
+      "id": 117,
+      "category": "interface",
+      "description": "api/ must not import from spi/ — api/ defines abstractions, it must not depend on implementations",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 2.7295000000000003
+    },
+    {
+      "id": 118,
+      "category": "interface",
+      "description": "api/ must not import from gateway/ — api/ defines abstractions, it must not depend on implementations",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 3.1075
+    },
+    {
+      "id": 119,
+      "category": "interface",
+      "description": "gateway/ must not import from spi/ — gateway/ depends on saf/ only, not on SPI implementations",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 2.1101
+    },
+    {
+      "id": 120,
+      "category": "test_org",
+      "description": "Each source file in SEA layers has coverage via inline tests, a matching test file, or a layer-level test file in tests/ — reports per-layer coverage",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 121,
+      "category": "structure",
+      "description": "Every {implementation_layer}/ submodule must have a corresponding {interface_layer}/ submodule defining its types or traits",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient",
+            "message": "src\\core\\gradient has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "gradient.rs or gradient/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient' with type/trait definitions that src\\core\\gradient implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\add.rs",
+            "message": "src\\core\\gradient\\add.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "add.rs or add/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\add.rs' with type/trait definitions that src\\core\\gradient\\add.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\matmul.rs",
+            "message": "src\\core\\gradient\\matmul.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "matmul.rs or matmul/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\matmul.rs' with type/trait definitions that src\\core\\gradient\\matmul.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\mul.rs",
+            "message": "src\\core\\gradient\\mul.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "mul.rs or mul/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\mul.rs' with type/trait definitions that src\\core\\gradient\\mul.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\relu.rs",
+            "message": "src\\core\\gradient\\relu.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "relu.rs or relu/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\relu.rs' with type/trait definitions that src\\core\\gradient\\relu.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\sigmoid.rs",
+            "message": "src\\core\\gradient\\sigmoid.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "sigmoid.rs or sigmoid/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\sigmoid.rs' with type/trait definitions that src\\core\\gradient\\sigmoid.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\softmax.rs",
+            "message": "src\\core\\gradient\\softmax.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "softmax.rs or softmax/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\softmax.rs' with type/trait definitions that src\\core\\gradient\\softmax.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient\\tanh.rs",
+            "message": "src\\core\\gradient\\tanh.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "tanh.rs or tanh/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient\\tanh.rs' with type/trait definitions that src\\core\\gradient\\tanh.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "src\\core\\gradient_tape.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "gradient_tape.rs or gradient_tape/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\gradient_tape.rs' with type/trait definitions that src\\core\\gradient_tape.rs implements against",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 121,
+            "path": "src\\core\\pool.rs",
+            "message": "src\\core\\pool.rs has no corresponding api interface counterpart",
+            "severity": "warning",
+            "rule_type": "builtin:core_api_module_correspondence",
+            "expected": "pool.rs or pool/mod.rs",
+            "actual": "not found",
+            "fix_hint": "Create 'src\\api\\pool.rs' with type/trait definitions that src\\core\\pool.rs implements against",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 122,
+      "category": "interface",
+      "description": "Config struct methods must be pub(crate), not pub — configs are not for public consumption",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 123,
+      "category": "naming",
+      "description": "Module name must not prefix the struct/trait name (e.g., config::Config not config::ConfigConfig)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 124,
+      "category": "test_org",
+      "description": "Every pub/pub(crate) fn in L2 layers must have an inline unit test (#[cfg(test)] block with #[test])",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 124,
+            "path": null,
+            "message": "L2 unit test coverage: 73% (14/19 functions have inline tests)",
+            "severity": "warning",
+            "rule_type": "builtin:core_fns_have_unit_tests",
+            "expected": "100% of L2/ functions with inline unit tests",
+            "actual": "73% coverage",
+            "fix_hint": "Add #[cfg(test)] mod tests { #[test] fn test_<name>() { ... } } to each core/ source file",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 124,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Function 'new' in 'src/core/gradient_tape.rs' has no corresponding inline unit test",
+            "severity": "warning",
+            "rule_type": "builtin:core_fns_have_unit_tests",
+            "expected": "#[test] fn test_new()",
+            "actual": "no matching test function found",
+            "fix_hint": "Add a `#[cfg(test)] mod tests { #[test] fn test_<fn_name>() { ... } }` block to the source file",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 124,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Function 'clear' in 'src/core/gradient_tape.rs' has no corresponding inline unit test",
+            "severity": "warning",
+            "rule_type": "builtin:core_fns_have_unit_tests",
+            "expected": "#[test] fn test_clear()",
+            "actual": "no matching test function found",
+            "fix_hint": "Add a `#[cfg(test)] mod tests { #[test] fn test_<fn_name>() { ... } }` block to the source file",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 124,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Function 'is_enabled' in 'src/core/gradient_tape.rs' has no corresponding inline unit test",
+            "severity": "warning",
+            "rule_type": "builtin:core_fns_have_unit_tests",
+            "expected": "#[test] fn test_is_enabled()",
+            "actual": "no matching test function found",
+            "fix_hint": "Add a `#[cfg(test)] mod tests { #[test] fn test_<fn_name>() { ... } }` block to the source file",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 124,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Function 'record_op' in 'src/core/gradient_tape.rs' has no corresponding inline unit test",
+            "severity": "warning",
+            "rule_type": "builtin:core_fns_have_unit_tests",
+            "expected": "#[test] fn test_record_op()",
+            "actual": "no matching test function found",
+            "fix_hint": "Add a `#[cfg(test)] mod tests { #[test] fn test_<fn_name>() { ... } }` block to the source file",
+            "remediation_strategy": "manual"
+          },
+          {
+            "check_id": 124,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "Function 'clear_tape' in 'src/core/gradient_tape.rs' has no corresponding inline unit test",
+            "severity": "warning",
+            "rule_type": "builtin:core_fns_have_unit_tests",
+            "expected": "#[test] fn test_clear_tape()",
+            "actual": "no matching test function found",
+            "fix_hint": "Add a `#[cfg(test)] mod tests { #[test] fn test_<fn_name>() { ... } }` block to the source file",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 125,
+      "category": "test_org",
+      "description": "Every pub fn in saf/ must have corresponding public-API test coverage (_e2e_test.rs, _int_test.rs, or a layer-level saf_* test)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 126,
+      "category": "interface",
+      "description": "saf/ must not re-export traits via pub use — wrap trait methods as standalone functions instead",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 4.0324
+    },
+    {
+      "id": 130,
+      "category": "structure",
+      "description": "Root must not have both build and bootstrap scripts",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 131,
+      "category": "gateway_isolation",
+      "description": "src/gateway/ must exist (prerequisite gate for rules 132-133)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 131,
+            "path": "src/gateway",
+            "message": "Directory 'src/gateway' does not exist",
+            "severity": "info",
+            "rule_type": "dir_exists",
+            "expected": "src/gateway",
+            "actual": "missing",
+            "fix_hint": "Create the directory 'src/gateway'",
+            "remediation_strategy": "declarative"
+          }
+        ]
+      },
+      "duration_ms": 0.0799
+    },
+    {
+      "id": 132,
+      "category": "gateway_isolation",
+      "description": "gateway/mod.rs must declare pub(crate) mod ingress",
+      "result": {
+        "status": "dormant",
+        "waiting_on": [
+          131
+        ],
+        "reason": "Dormant: would fire when prerequisite rule(s) 131 pass"
+      },
+      "duration_ms": 0.16679999999999998
+    },
+    {
+      "id": 133,
+      "category": "gateway_isolation",
+      "description": "gateway/mod.rs must declare pub(crate) mod egress",
+      "result": {
+        "status": "dormant",
+        "waiting_on": [
+          131
+        ],
+        "reason": "Dormant: would fire when prerequisite rule(s) 131 pass"
+      },
+      "duration_ms": 0.0439
+    },
+    {
+      "id": 135,
+      "category": "interface",
+      "description": "L2 must not import from L4 (core/ and spi/ must not depend on gateway/)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 7.0765
+    },
+    {
+      "id": 136,
+      "category": "interface",
+      "description": "gateway/ must not import from core/ — gateway/ calls saf/, not core/ directly",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 1.5656999999999999
+    },
+    {
+      "id": 137,
+      "category": "interface",
+      "description": "saf/ must not import from gateway/ — gateway/ calls saf/, not the reverse",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 2.363
+    },
+    {
+      "id": 138,
+      "category": "naming",
+      "description": "Directory names under src/ must use snake_case",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 139,
+      "category": "shim_detection",
+      "description": "SEA layer files must contain substantive code (not just comments or empty re-exports)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 140,
+      "category": "shim_detection",
+      "description": "lib.rs must be a real entry point, not a shim with only re-exports",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 141,
+      "category": "shim_detection",
+      "description": "SEA layer mod.rs must not be a crate-level re-export shim",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 142,
+      "category": "shim_detection",
+      "description": "SEA layer directories must meet minimum LOC threshold (api/>10, core/>20, saf/>5)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 143,
+      "category": "shim_detection",
+      "description": "[lib] and [[bin]] paths must point inside src/",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 144,
+      "category": "shim_detection",
+      "description": "Non-standard [lib] path with src/ present suggests shim directory",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 145,
+      "category": "interface",
+      "description": "Free functions in saf/ or core/ taking an api-defined type as parameter should be methods on that type",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 146,
+      "category": "naming",
+      "description": "Package name must not use SEA layer suffixes as defined in sea_layers config",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 147,
+      "category": "workspace",
+      "description": "Workspace root Cargo.toml must not contain [package] — workspace roots must be virtual",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 149,
+      "category": "test_org",
+      "description": "Test file prefix must match a source module name, optionally followed by a pub fn name",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 150,
+      "category": "hygiene",
+      "description": "Weak filesystem patterns — code that produces host-dependent paths (MAIN_SEPARATOR, hardcoded \\\\, replace-hacks, literal backslashes)",
+      "result": {
+        "status": "pass"
+      },
+      "duration_ms": 6.038
+    },
+    {
+      "id": 152,
+      "category": "service_type",
+      "description": "service_type must be defined in project metadata",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 152,
+            "path": "Cargo.toml",
+            "message": "service_type not defined in [package.metadata.struct-engine]",
+            "severity": "error",
+            "rule_type": "builtin:service_type_defined",
+            "expected": "service_type = \"generator|compiler|validator|...\"",
+            "actual": "missing",
+            "fix_hint": "Add `service_type = \"<type>\"` to the [package.metadata.struct-engine] section in Cargo.toml",
+            "remediation_strategy": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "id": 153,
+      "category": "service_type",
+      "description": "api/traits.rs must contain the primary trait matching service_type",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 154,
+      "category": "service_type",
+      "description": "core/ must implement the primary api trait (impl <PrimaryTrait> for)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 155,
+      "category": "service_type",
+      "description": "Every non-orchestrator crate must have a Validator trait in api/traits.rs",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 158,
+      "category": "test_org",
+      "description": "Test functions must not be placeholders (panic!/todo!/unimplemented!/unreachable!/empty body)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 159,
+      "category": "interface",
+      "description": "saf/ public function signatures must not name types from core/ (signature leak)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 160,
+      "category": "interface",
+      "description": "All public types (struct, enum, trait, type alias) must be declared under api/ — no other layer is a legal declaration site",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient\\add.rs",
+            "message": "pub struct 'AddBackward' declared in core/ — all public types must be declared in api/: 'pub struct AddBackward {'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/add_backward.rs",
+            "actual": "pub struct AddBackward {",
+            "fix_hint": "Move `pub struct AddBackward` from 'src/core/gradient/add.rs' to 'src/api/add_backward.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/add_backward.rs",
+                "when_appropriate": "If `AddBackward` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `AddBackward` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          },
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient\\matmul.rs",
+            "message": "pub struct 'MatMulBackward' declared in core/ — all public types must be declared in api/: 'pub struct MatMulBackward;'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/mat_mul_backward.rs",
+            "actual": "pub struct MatMulBackward;",
+            "fix_hint": "Move `pub struct MatMulBackward` from 'src/core/gradient/matmul.rs' to 'src/api/mat_mul_backward.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/mat_mul_backward.rs",
+                "when_appropriate": "If `MatMulBackward` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `MatMulBackward` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          },
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient\\mul.rs",
+            "message": "pub struct 'MulBackward' declared in core/ — all public types must be declared in api/: 'pub struct MulBackward;'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/mul_backward.rs",
+            "actual": "pub struct MulBackward;",
+            "fix_hint": "Move `pub struct MulBackward` from 'src/core/gradient/mul.rs' to 'src/api/mul_backward.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/mul_backward.rs",
+                "when_appropriate": "If `MulBackward` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `MulBackward` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          },
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient\\relu.rs",
+            "message": "pub struct 'ReLUBackward' declared in core/ — all public types must be declared in api/: 'pub struct ReLUBackward;'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/re_l_u_backward.rs",
+            "actual": "pub struct ReLUBackward;",
+            "fix_hint": "Move `pub struct ReLUBackward` from 'src/core/gradient/relu.rs' to 'src/api/re_l_u_backward.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/re_l_u_backward.rs",
+                "when_appropriate": "If `ReLUBackward` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `ReLUBackward` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          },
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient\\sigmoid.rs",
+            "message": "pub struct 'SigmoidBackward' declared in core/ — all public types must be declared in api/: 'pub struct SigmoidBackward;'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/sigmoid_backward.rs",
+            "actual": "pub struct SigmoidBackward;",
+            "fix_hint": "Move `pub struct SigmoidBackward` from 'src/core/gradient/sigmoid.rs' to 'src/api/sigmoid_backward.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/sigmoid_backward.rs",
+                "when_appropriate": "If `SigmoidBackward` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `SigmoidBackward` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          },
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient\\tanh.rs",
+            "message": "pub struct 'TanhBackward' declared in core/ — all public types must be declared in api/: 'pub struct TanhBackward;'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/tanh_backward.rs",
+            "actual": "pub struct TanhBackward;",
+            "fix_hint": "Move `pub struct TanhBackward` from 'src/core/gradient/tanh.rs' to 'src/api/tanh_backward.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/tanh_backward.rs",
+                "when_appropriate": "If `TanhBackward` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `TanhBackward` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          },
+          {
+            "check_id": 160,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "pub struct 'GradientTape' declared in core/ — all public types must be declared in api/: 'pub struct GradientTape {'",
+            "severity": "warning",
+            "rule_type": "builtin:pub_types_in_api_only",
+            "expected": "declaration at src/api/gradient_tape.rs",
+            "actual": "pub struct GradientTape {",
+            "fix_hint": "Move `pub struct GradientTape` from 'src/core/gradient_tape.rs' to 'src/api/gradient_tape.rs' if public contract, or demote to `pub(crate)` if implementation detail. See fix_options for the two alternatives.",
+            "remediation_strategy": "manual",
+            "fix_options": [
+              {
+                "action": "move_to_api",
+                "target": "src/api/gradient_tape.rs",
+                "when_appropriate": "If `GradientTape` is part of the public contract — consumers construct, store, or reference it by name.",
+                "is_safe": false
+              },
+              {
+                "action": "downgrade_visibility",
+                "target": "pub(crate)",
+                "when_appropriate": "If `GradientTape` is implementation detail — the `pub` was accidental and nothing outside this crate names it.",
+                "is_safe": true
+              }
+            ],
+            "principles": [
+              "single_source_of_truth",
+              "encapsulation",
+              "separation_of_concerns"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 161,
+      "category": "naming",
+      "description": "Each pub type/trait in api/ must be in its own standalone file with the file stem matching the snake_case name",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 161,
+            "path": "src\\api\\error.rs",
+            "message": "api/ file 'src/api/error.rs' contains multiple pub items [\"MlResult\", \"MlError\"] — each must be in its own file under api/",
+            "severity": "warning",
+            "rule_type": "builtin:api_filename_matches_type",
+            "expected": "one pub item per file, with stem matching the item name (e.g. api/ml_result.rs, api/ml_error.rs)",
+            "actual": "2 pub items",
+            "fix_hint": "Split each pub type/trait into its own file under api/, with the file stem matching the type's snake_case name. Update mod.rs to declare each new module and update consumers' use paths.",
+            "remediation_strategy": "imperative",
+            "principles": [
+              "screaming_architecture",
+              "locality_of_reference"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 162,
+      "category": "code_organization",
+      "description": "lib.rs must contain only module declarations and re-exports — no struct/impl/fn/const definitions",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 167,
+      "category": "structure",
+      "description": "Only one architecture.toml location is allowed: either architecture.toml at root or main/config/architecture.toml, not both",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 169,
+      "category": "structure",
+      "description": "Every top-level directory at the workspace root must be a declared workspace member or an ancestor of one",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 170,
+      "category": "naming",
+      "description": "Config files must map to corresponding ConfigBuilder struct names: <name>.toml → <Name>ConfigBuilder",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 171,
+      "category": "security",
+      "description": "Source files must not contain hardcoded secrets, credentials, or API keys",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 172,
+      "category": "security",
+      "description": "Project must have a security policy file (SECURITY.md, SECURITY.txt, or .github/SECURITY.md)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 172,
+            "path": "SECURITY.md",
+            "message": "No security policy file found (SECURITY.md, SECURITY.txt, or .github/SECURITY.md)",
+            "severity": "warning",
+            "rule_type": "builtin:security_policy_file_exists",
+            "expected": "SECURITY.md at project root",
+            "actual": "missing",
+            "fix_hint": "Fix the issue detected by builtin check 'security_policy_file_exists'",
+            "remediation_strategy": "manual",
+            "principles": [
+              "transparency",
+              "defense_in_depth"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 173,
+      "category": "security",
+      "description": "Every unsafe block must be preceded by a // SAFETY: comment explaining the invariant",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 174,
+      "category": "security",
+      "description": "Project must configure dependency vulnerability auditing via deny.toml or cargo audit in CI",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 174,
+            "path": "deny.toml",
+            "message": "No dependency vulnerability auditing configured (deny.toml or `cargo audit` in CI)",
+            "severity": "warning",
+            "rule_type": "builtin:security_dependency_audit_configured",
+            "expected": "deny.toml with [advisories] section, or `cargo audit` step in CI",
+            "actual": "missing",
+            "fix_hint": "Fix the issue detected by builtin check 'security_dependency_audit_configured'",
+            "remediation_strategy": "manual",
+            "principles": [
+              "defense_in_depth",
+              "supply_chain_integrity"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 175,
+      "category": "naming",
+      "description": "all non-mod.rs files in saf/ must be named <last_segment_of_package_name>_svc.rs",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 176,
+      "category": "hygiene",
+      "description": "Library code must not use println!/eprintln! — use tracing macros (info!, warn!, error!) instead",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 177,
+      "category": "hygiene",
+      "description": "Source files must not suppress the unused_imports lint via #[allow(unused_imports)]",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 178,
+      "category": "cargo_metadata",
+      "description": "Cargo dependencies must not use path = \"...\" — use git or registry sources instead",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 179,
+      "category": "workspace",
+      "description": "When 2+ workspace members share a common parent directory, use a glob pattern (<parent>/*) instead of explicit enumeration",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 180,
+      "category": "interface",
+      "description": "Error types that cross layer boundaries must be declared in api/, not in core/",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 181,
+      "category": "interface",
+      "description": "A crate's saf/ or api/ must not expose another crate's error type in a Result return position",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 182,
+      "category": "hygiene",
+      "description": "include_str! embedding a config file must be paired with a runtime read — use embed as fallback, not sole source",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 183,
+      "category": "workspace",
+      "description": "[workspace].exclude must not be used — every crate on disk must be a member or deleted",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 184,
+      "category": "boundary",
+      "description": "domain crates must not depend on adapter crates",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 185,
+      "category": "boundary",
+      "description": "crate names must not end with generic responsibility suffixes (-core, -utils, -api, -common, -shared, -helpers)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 186,
+      "category": "boundary",
+      "description": "adapter crates must not define public traits — port traits belong in the domain crate",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 187,
+      "category": "boundary",
+      "description": "adapter crates must implement at least one domain port trait",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 191,
+      "category": "interface",
+      "description": "SEA layer files must not contain free-standing fn — all functions must be methods on a type (OOP violation)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 191,
+            "path": "src\\api\\tensor.rs",
+            "message": "fn `normalize_dim_helper` at line 417 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn normalize_dim_helper(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\api\\tensor.rs",
+            "message": "fn `compute_strides` at line 428 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn compute_strides(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient\\add.rs",
+            "message": "fn `unbroadcast` at line 18 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn unbroadcast(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `record_op` at line 80 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn record_op(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `backward` at line 84 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn backward(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `grad` at line 89 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn grad(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `set_grad` at line 94 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn set_grad(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `no_grad` at line 98 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn no_grad(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `clear_tape` at line 114 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn clear_tape(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\gradient_tape.rs",
+            "message": "fn `is_recording` at line 116 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn is_recording(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\pool.rs",
+            "message": "fn `acquire` at line 39 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn acquire(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\pool.rs",
+            "message": "fn `release` at line 43 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn release(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 191,
+            "path": "src\\core\\pool.rs",
+            "message": "fn `clear_pool` at line 47 is free-standing — move it into an impl block on a type",
+            "severity": "error",
+            "rule_type": "builtin:layers_no_free_standing_fn",
+            "expected": "Move this function into an `impl` block on a type defined in api/",
+            "actual": "fn clear_pool(...) {...}",
+            "fix_hint": "Move this function into an impl block on a type defined in api/",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "single_responsibility"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 192,
+      "category": "naming",
+      "description": "SEA layer directory names must not contain underscores — use nested directories instead of underscore-concatenated names",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 193,
+      "category": "cargo_metadata",
+      "description": "Workspace root must not define [workspace.dependencies] — hoisting couples all members to a single version and hides per-package intent",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 194,
+      "category": "cargo_metadata",
+      "description": "Workspace members must not pin the same crate at different versions — version drift causes duplicate compilations and unpredictable dependency graphs",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 195,
+      "category": "interface",
+      "description": "saf/ public function return types depend on crate extensibility: if spi/ exists, return `impl Trait` for downstream polymorphism; if spi/ does not exist, return concrete types only (no trait leaks)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 196,
+      "category": "interface",
+      "description": "api/ layer must not contain `pub struct` outside designated struct homes — flat layout: api/error/, api/types/; domain-grouped layout: api/<domain>/errors/, api/<domain>/types/",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 196,
+            "path": "src\\api\\tape_entry.rs",
+            "message": "'TapeEntry' at line 5 — pub struct in api/src\\api\\tape_entry.rs is outside designated struct homes (api/types/ or api/{theme}/types/)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_pub_struct",
+            "expected": "move to api/types/ or api/{theme}/types/",
+            "actual": "pub struct TapeEntry {",
+            "fix_hint": "Move the struct to core/ and expose it behind an api/ trait; to api/error/ or api/<domain>/errors/ if it is an error type; or to api/types/ or api/<domain>/types/ if it is a value object",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "programming_to_interface"
+            ]
+          },
+          {
+            "check_id": 196,
+            "path": "src\\api\\tensor.rs",
+            "message": "'Tensor' at line 6 — pub struct in api/src\\api\\tensor.rs is outside designated struct homes (api/types/ or api/{theme}/types/)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_pub_struct",
+            "expected": "move to api/types/ or api/{theme}/types/",
+            "actual": "pub struct Tensor {",
+            "fix_hint": "Move the struct to core/ and expose it behind an api/ trait; to api/error/ or api/<domain>/errors/ if it is an error type; or to api/types/ or api/<domain>/types/ if it is a value object",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "programming_to_interface"
+            ]
+          },
+          {
+            "check_id": 196,
+            "path": "src\\api\\tensor_id.rs",
+            "message": "'TensorId' at line 6 — pub struct in api/src\\api\\tensor_id.rs is outside designated struct homes (api/types/ or api/{theme}/types/)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_pub_struct",
+            "expected": "move to api/types/ or api/{theme}/types/",
+            "actual": "pub struct TensorId(pub(crate) u64);",
+            "fix_hint": "Move the struct to core/ and expose it behind an api/ trait; to api/error/ or api/<domain>/errors/ if it is an error type; or to api/types/ or api/<domain>/types/ if it is a value object",
+            "remediation_strategy": "manual",
+            "principles": [
+              "encapsulation",
+              "programming_to_interface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 197,
+      "category": "interface",
+      "description": "api/ must contain trait definitions — either a flat api/traits/ subdirectory or domain-grouped api/<domain>/traits/ directories; at least one must exist",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 197,
+            "path": "src/api/traits/",
+            "message": "No traits directory found in api project root — expected api/traits/ or api/{theme}/traits/",
+            "severity": "error",
+            "rule_type": "builtin:api_has_traits_dir",
+            "expected": "api/traits/ directory (or api/{theme}/traits/)",
+            "actual": "no traits entry found",
+            "fix_hint": "Create src/api/traits/ with pub trait declarations for the SEA interface contract",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 198,
+      "category": "interface",
+      "description": "api/ must contain error types — either a flat api/error/ subdirectory or domain-grouped api/<domain>/errors/ directories; at least one must exist",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 198,
+            "path": "src/api/error/",
+            "message": "No error directory found in api project root — expected api/error/ or api/{theme}/errors/",
+            "severity": "error",
+            "rule_type": "builtin:api_has_error_dir",
+            "expected": "api/error/ directory (or api/{theme}/errors/)",
+            "actual": "no error dir found",
+            "fix_hint": "Create src/api/error/ with domain error type definitions",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 199,
+      "category": "test_organization",
+      "description": "saf/ and api/ layer files must not contain #[cfg(test)] blocks — public-layer tests must live in standalone tests/ files",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 199,
+            "path": "src\\api\\backward_op.rs",
+            "message": "Public-layer file 'src/api/backward_op.rs' contains a #[cfg(test)] block — saf/ and api/ tests must live in standalone tests/ files",
+            "severity": "error",
+            "rule_type": "builtin:pub_layer_tests_standalone",
+            "expected": "tests/backward_op_int_test.rs (or similar)",
+            "actual": "#[cfg(test)] in public layer",
+            "fix_hint": "Move the #[cfg(test)] block from 'src/api/backward_op.rs' to a file in tests/ (e.g. tests/backward_op_int_test.rs)",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 199,
+            "path": "src\\api\\error.rs",
+            "message": "Public-layer file 'src/api/error.rs' contains a #[cfg(test)] block — saf/ and api/ tests must live in standalone tests/ files",
+            "severity": "error",
+            "rule_type": "builtin:pub_layer_tests_standalone",
+            "expected": "tests/error_int_test.rs (or similar)",
+            "actual": "#[cfg(test)] in public layer",
+            "fix_hint": "Move the #[cfg(test)] block from 'src/api/error.rs' to a file in tests/ (e.g. tests/error_int_test.rs)",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 199,
+            "path": "src\\api\\tape_entry.rs",
+            "message": "Public-layer file 'src/api/tape_entry.rs' contains a #[cfg(test)] block — saf/ and api/ tests must live in standalone tests/ files",
+            "severity": "error",
+            "rule_type": "builtin:pub_layer_tests_standalone",
+            "expected": "tests/tape_entry_int_test.rs (or similar)",
+            "actual": "#[cfg(test)] in public layer",
+            "fix_hint": "Move the #[cfg(test)] block from 'src/api/tape_entry.rs' to a file in tests/ (e.g. tests/tape_entry_int_test.rs)",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 199,
+            "path": "src\\api\\tensor.rs",
+            "message": "Public-layer file 'src/api/tensor.rs' contains a #[cfg(test)] block — saf/ and api/ tests must live in standalone tests/ files",
+            "severity": "error",
+            "rule_type": "builtin:pub_layer_tests_standalone",
+            "expected": "tests/tensor_int_test.rs (or similar)",
+            "actual": "#[cfg(test)] in public layer",
+            "fix_hint": "Move the #[cfg(test)] block from 'src/api/tensor.rs' to a file in tests/ (e.g. tests/tensor_int_test.rs)",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 199,
+            "path": "src\\api\\tensor_id.rs",
+            "message": "Public-layer file 'src/api/tensor_id.rs' contains a #[cfg(test)] block — saf/ and api/ tests must live in standalone tests/ files",
+            "severity": "error",
+            "rule_type": "builtin:pub_layer_tests_standalone",
+            "expected": "tests/tensor_id_int_test.rs (or similar)",
+            "actual": "#[cfg(test)] in public layer",
+            "fix_hint": "Move the #[cfg(test)] block from 'src/api/tensor_id.rs' to a file in tests/ (e.g. tests/tensor_id_int_test.rs)",
+            "remediation_strategy": "auto",
+            "principles": [
+              "programming_to_interface",
+              "single_responsibility"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 200,
+      "category": "hygiene",
+      "description": "Production functions must not have stub bodies (todo!(), unimplemented!(), or empty)",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\add.rs",
+            "message": "fn `name` at line 17 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\matmul.rs",
+            "message": "fn `name` at line 21 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\mul.rs",
+            "message": "fn `name` at line 22 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\relu.rs",
+            "message": "fn `name` at line 18 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\sigmoid.rs",
+            "message": "fn `name` at line 17 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\softmax.rs",
+            "message": "fn `name` at line 50 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          },
+          {
+            "check_id": 200,
+            "path": "src\\core\\gradient\\tanh.rs",
+            "message": "fn `name` at line 17 has a stub body — implement it or remove it",
+            "severity": "error",
+            "rule_type": "builtin:no_stub_fn_bodies",
+            "expected": "Provide a real implementation",
+            "actual": "(empty)",
+            "fix_hint": "Implement the function body or remove the function",
+            "remediation_strategy": "auto",
+            "principles": [
+              "single_responsibility"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 201,
+      "category": "hygiene",
+      "description": "No bare .unwrap() calls in production source",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 202,
+      "category": "hygiene",
+      "description": "No bare .expect() with empty or placeholder message",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 203,
+      "category": "hygiene",
+      "description": "No panic!() in library code",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 204,
+      "category": "interface",
+      "description": "api/ must define at least one domain Error type",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 206,
+      "category": "cargo_metadata",
+      "description": "Cargo.toml must configure clippy error-handling lints (unwrap_used, expect_used) as deny or warn",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 206,
+            "path": "Cargo.toml",
+            "message": "clippy::unwrap_used is not configured as deny or warn in [lints.clippy]",
+            "severity": "error",
+            "rule_type": "builtin:clippy_error_lints_configured",
+            "expected": "[lints.clippy] unwrap_used = \"deny\"",
+            "actual": "not set",
+            "fix_hint": "Add `unwrap_used = \"deny\"` under [lints.clippy] in Cargo.toml",
+            "principles": [
+              "defensive_programming"
+            ]
+          },
+          {
+            "check_id": 206,
+            "path": "Cargo.toml",
+            "message": "clippy::expect_used is not configured as deny or warn in [lints.clippy]",
+            "severity": "error",
+            "rule_type": "builtin:clippy_error_lints_configured",
+            "expected": "[lints.clippy] expect_used = \"deny\"",
+            "actual": "not set",
+            "fix_hint": "Add `expect_used = \"deny\"` under [lints.clippy] in Cargo.toml",
+            "principles": [
+              "defensive_programming"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 207,
+      "category": "interface",
+      "description": "spi must be a directory (src/spi/mod.rs) with real code — a flat src/spi.rs file or an empty/comment-only src/spi/mod.rs is invalid SEA structure",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 208,
+      "category": "interface",
+      "description": "api/ root must not contain loose .rs files or mixed-layout directories — only mod.rs at root; no flat traits/types/error/ dirs when domain-grouped layout (api/<domain>/traits/) is active",
+      "result": {
+        "status": "fail",
+        "violations": [
+          {
+            "check_id": 208,
+            "path": "src\\api\\backward_op.rs",
+            "message": "Loose file 'backward_op.rs' at api/ root — all code must live in subdirectories (api/traits/, api/types/, api/error/, etc.)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_loose_rs_files",
+            "expected": "api/traits/<name>.rs or api/types/<name>.rs",
+            "actual": "api/backward_op.rs",
+            "fix_hint": "Move to the appropriate subdirectory: traits → api/traits/, types → api/types/, errors → api/error/",
+            "principles": [
+              "screaming_architecture",
+              "encapsulation"
+            ]
+          },
+          {
+            "check_id": 208,
+            "path": "src\\api\\error.rs",
+            "message": "Loose file 'error.rs' at api/ root — all code must live in subdirectories (api/traits/, api/types/, api/error/, etc.)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_loose_rs_files",
+            "expected": "api/traits/<name>.rs or api/types/<name>.rs",
+            "actual": "api/error.rs",
+            "fix_hint": "Move to the appropriate subdirectory: traits → api/traits/, types → api/types/, errors → api/error/",
+            "principles": [
+              "screaming_architecture",
+              "encapsulation"
+            ]
+          },
+          {
+            "check_id": 208,
+            "path": "src\\api\\tape_entry.rs",
+            "message": "Loose file 'tape_entry.rs' at api/ root — all code must live in subdirectories (api/traits/, api/types/, api/error/, etc.)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_loose_rs_files",
+            "expected": "api/traits/<name>.rs or api/types/<name>.rs",
+            "actual": "api/tape_entry.rs",
+            "fix_hint": "Move to the appropriate subdirectory: traits → api/traits/, types → api/types/, errors → api/error/",
+            "principles": [
+              "screaming_architecture",
+              "encapsulation"
+            ]
+          },
+          {
+            "check_id": 208,
+            "path": "src\\api\\tensor.rs",
+            "message": "Loose file 'tensor.rs' at api/ root — all code must live in subdirectories (api/traits/, api/types/, api/error/, etc.)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_loose_rs_files",
+            "expected": "api/traits/<name>.rs or api/types/<name>.rs",
+            "actual": "api/tensor.rs",
+            "fix_hint": "Move to the appropriate subdirectory: traits → api/traits/, types → api/types/, errors → api/error/",
+            "principles": [
+              "screaming_architecture",
+              "encapsulation"
+            ]
+          },
+          {
+            "check_id": 208,
+            "path": "src\\api\\tensor_id.rs",
+            "message": "Loose file 'tensor_id.rs' at api/ root — all code must live in subdirectories (api/traits/, api/types/, api/error/, etc.)",
+            "severity": "error",
+            "rule_type": "builtin:api_no_loose_rs_files",
+            "expected": "api/traits/<name>.rs or api/types/<name>.rs",
+            "actual": "api/tensor_id.rs",
+            "fix_hint": "Move to the appropriate subdirectory: traits → api/traits/, types → api/types/, errors → api/error/",
+            "principles": [
+              "screaming_architecture",
+              "encapsulation"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 209,
+      "category": "hygiene",
+      "description": "Source files must not suppress the dead_code lint via #[allow(dead_code)]",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 211,
+      "category": "interface",
+      "description": "saf/ pub fn return types must be declared in api/types/ (when spi/ is absent)",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 212,
+      "category": "interface",
+      "description": "saf/ methods must not be thin wrappers — a saf/ method whose entire body delegates to a free function or another method adds no value and signals incomplete consolidation",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 213,
+      "category": "naming",
+      "description": "api/ files and types must not use the Default* prefix — Default* names signal a concrete implementation variant that belongs in core/, not in the contract layer",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 214,
+      "category": "naming",
+      "description": "core/ (L2) struct names must not end with Impl — use the Default* prefix (or Local*, Remote*, InMemory*, Noop*, <Technology>*) to name concrete implementation variants",
+      "result": {
+        "status": "pass"
+      }
+    },
+    {
+      "id": 215,
+      "category": "cargo_targets",
+      "description": "Cargo.toml must not declare [[test]] targets — integration tests in tests/ are auto-discovered",
+      "result": {
+        "status": "pass"
+      }
+    }
+  ],
+  "summary": {
+    "total": 168,
+    "passed": 133,
+    "failed": 32,
+    "skipped": 0,
+    "dormant": 3,
+    "duration_ms": 239.2514
+  },
+  "project_layout": "library",
+  "application_type": "lib",
+  "rule_labels": {
+    "86": [
+      "core",
+      "spi"
+    ],
+    "113": [
+      "core",
+      "spi"
+    ],
+    "50": [
+      "core",
+      "spi"
+    ],
+    "89": [
+      "core",
+      "spi"
+    ],
+    "90": [
+      "core",
+      "spi"
+    ],
+    "111": [
+      "core",
+      "spi"
+    ],
+    "124": [
+      "core",
+      "spi"
+    ],
+    "51": [
+      "core",
+      "spi"
+    ]
+  }
+}

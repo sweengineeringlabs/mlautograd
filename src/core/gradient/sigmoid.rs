@@ -1,7 +1,6 @@
-use crate::api::backward_op::BackwardOp;
-use crate::api::tensor::Tensor;
-
-pub struct SigmoidBackward;
+use crate::api::gradient::types::sigmoid_backward::SigmoidBackward;
+use crate::api::traits::backward_op::BackwardOp;
+use crate::api::types::tensor::Tensor;
 
 impl BackwardOp for SigmoidBackward {
     fn backward(&self, grad_output: &Tensor, saved: &[Tensor]) -> Vec<Tensor> {
@@ -13,9 +12,7 @@ impl BackwardOp for SigmoidBackward {
         vec![grad_input]
     }
 
-    fn name(&self) -> &str {
-        "SigmoidBackward"
-    }
+
 }
 
 #[cfg(test)]
