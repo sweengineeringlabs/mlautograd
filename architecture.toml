@@ -1,4 +1,0 @@
-application_type = "lib"
-
-[whitelist]
-allow = [".git", ".gitignore"]
